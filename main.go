@@ -3,13 +3,33 @@ package main
 import (
 	"errors"
 	"fmt"
+	"log"
+	"os"
 	"strings"
 )
 
 
-
 func main() {
+	//concurrency()
+	//channeling()
+	//directionalChan()
+	//context()
+	//openFile()
 
+}
+
+
+func openFile(){
+	//_, err := os.OpenFile("filename.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+	_,err := os.Open("filename.txt")
+	if err!=nil{
+		//fmt.Println(err)
+		log.Fatal(err)
+		//log.Panic(err)
+	}
+}
+
+func simpleGolang(){
 	var eko Person
 	eko.Name = "Eko"
 
