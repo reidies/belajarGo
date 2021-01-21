@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"log"
@@ -10,12 +11,45 @@ import (
 
 
 func main() {
-	//concurrency()
-	//channeling()
-	//directionalChan()
-	//context()
-	//openFile()
 
+	//fmt.Println("1+2 :",mySum(1,2))
+	//values :=[] int{5,1,2,5,1}
+	//maximumValue(values...)
+
+	concurrency()
+	//understandingPointer()
+
+}
+
+func jsonMarshal(){
+	c1 := Customer{
+		Name: "rudi",
+		Address: "sampit",
+		age: 32,
+	}
+	c2 := Customer{
+		Name: "alex",
+		Address: "sumatera",
+		age: 42,
+	}
+
+	customers := []Customer{c1,c2}
+
+	bs, err := json.Marshal(customers)
+	if err != nil{
+		log.Println("something wrong", err)
+	}else {
+		fmt.Println(string(bs))
+	}
+
+}
+
+func mySum(xi ...int) int{
+	sum:=0
+	for _, v:=range xi{
+		sum +=v
+	}
+	return sum
 }
 
 

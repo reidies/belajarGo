@@ -7,6 +7,39 @@ import (
 	"time"
 )
 
+
+func maximumValue(b ...int){
+	maxValue := make(chan int)
+	maxInteger := -1
+	go func(){
+		for i := len(b)-1; i >0 ;i--{
+			maxValue := getHigher(b, b[i])
+			close(maxValue)
+		}
+	}()
+
+	for n := range maxValue {
+		if n > maxInteger{
+			maxInteger = n
+		}
+	}
+
+	fmt.Println(maxInteger)
+}
+
+func getHigher(b []int, x int) chan int {
+	higherValue := 0
+	out := make(chan int)
+	for _, v:=range b{
+		if x>v && higherValue < x-v {
+			higherValue = x-v
+		}
+	}
+	out <- higherValue
+	close(out)
+	return out
+}
+
 func channeling(){
 	c := make(chan int)
 

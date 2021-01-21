@@ -12,7 +12,7 @@ var wg sync.WaitGroup
 var counter int64
 //var mutex sync.Mutex
 
-func concurrency(){
+func concurrency(){ // using wg
 
 	wg.Add(2)
 	go incrementer("foo:")
@@ -52,7 +52,7 @@ func foo(){
 	wg.Done()
 }
 
-func bar(){
+func bar() {
 	for i:=0; i<10;i++{
 		fmt.Println("bar", i)
 		time.Sleep(3 * time.Millisecond)

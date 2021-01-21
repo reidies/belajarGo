@@ -54,3 +54,4 @@ func registerUser(name string, blacklist Blacklist) {
 		fmt.Println("Welcome", name)
 	}
 }
+

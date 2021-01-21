@@ -34,6 +34,26 @@ func pointer() {
 
 }
 
+func understandingPointer(){
+	a:=42
+	fmt.Println(a)
+	fmt.Println(&a)
+
+	b := &a
+	fmt.Println(b)
+	fmt.Println(&b)
+	*b = 43
+	fmt.Println(b)
+	fmt.Println(&b)
+
+	c := a
+	fmt.Println(c)
+	fmt.Println(&c)
+	c = 45
+	fmt.Println(c)
+	fmt.Println(&c)
+}
+
 func changeAddress (address *Address){
 	address.country ="USA"
 }
